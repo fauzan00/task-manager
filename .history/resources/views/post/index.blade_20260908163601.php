@@ -28,7 +28,11 @@
                                 <td>
                                     <a href="{{ route('post.show', $user) }}" class="text-green-500">Show</a>
                                     <a href="{{ route('post.edit', $user) }}" class="text-blue-500">Edit</a>
-                                    {{-- <a href="{{ route('post.delete', $user) }}" class="text-red-500">Delete</a> --}}
+                                    <form action="{{ route('post.destroy', $user->id) }}" method="post">
+                                        @csrf
+                                        @method('post')
+                                        <button type="submit" class="text-red-500">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

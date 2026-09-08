@@ -5,9 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/post', [PostController::class, 'index'])->name('post.index');
-
-Route::resource('/post', PostController::class);
+Route::get('/post', [PostController::class, 'index'])->name('post.index');
 
 Route::get('/', function () {
     return view('welcome');

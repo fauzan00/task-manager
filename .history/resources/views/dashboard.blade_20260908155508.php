@@ -11,13 +11,16 @@
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged insss!") }}
                 </div>
+                @php
+                    $users = \App\Models\User::all();
+                @endphp
 
-                <table class="table-auto" style="border: 1px solid black;">
+
+                <table>
                     <thead>
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Tindakan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,15 +28,16 @@
                             <tr>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>
-                                    <a href="{{ route('post.show', $user) }}" class="text-green-500">Show</a>
-                                    <a href="{{ route('post.edit', $user) }}" class="text-blue-500">Edit</a>
-                                    {{-- <a href="{{ route('post.delete', $user) }}" class="text-red-500">Delete</a> --}}
-                                </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+                @foreach ($users as $user)
+                    <p>{{ $user->name }}</p>
+                    <p>{{ $user->email }}</p>
+                @endforeach
+
+
             </div>
         </div>
     </div>
